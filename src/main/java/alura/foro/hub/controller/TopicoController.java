@@ -3,6 +3,7 @@ package alura.foro.hub.controller;
 import alura.foro.hub.domain.topico.DatosRegistroTopico;
 import alura.foro.hub.domain.topico.Topico;
 import alura.foro.hub.domain.topico.TopicoRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,7 @@ public class TopicoController {
     private TopicoRepository topicoRepository;
 
     @PostMapping
-    public void registrarTopico(@RequestBody DatosRegistroTopico datosRegistroTopico) {
+    public void registrarTopico(@Valid @RequestBody DatosRegistroTopico datosRegistroTopico) {
         topicoRepository.save(new Topico(datosRegistroTopico));
     }
 
