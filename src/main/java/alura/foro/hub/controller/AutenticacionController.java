@@ -1,6 +1,7 @@
 package alura.foro.hub.controller;
 
 import alura.foro.hub.domain.usuario.DatosAutenticacionUsuario;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,7 +19,7 @@ public class AutenticacionController {
     private AuthenticationManager authenticationManager;
 
     @PostMapping
-    public ResponseEntity autenticarUsuario(@RequestBody DatosAutenticacionUsuario datosAutenticacionUsuario) {
+    public ResponseEntity autenticarUsuario(@RequestBody @Valid DatosAutenticacionUsuario datosAutenticacionUsuario) {
         Authentication token = new UsernamePasswordAuthenticationToken(
                 datosAutenticacionUsuario.login(),
                 datosAutenticacionUsuario.clave());

@@ -1,11 +1,12 @@
 package alura.foro.hub.domain.usuario;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public record DatosAutenticacionUsuario(
-        @NotNull
+        @NotBlank
         String login,
-        @NotNull
+        @NotBlank
         String clave
 ) {
 }
