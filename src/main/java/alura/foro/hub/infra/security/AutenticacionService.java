@@ -12,6 +12,7 @@ public class AutenticacionService implements UserDetailsService {
 
     UsuarioRepository usuarioRepository;
 
+    //esta es la forma de inyectar un repository dentro del constructor, no en la propiedad
     @Autowired
     public AutenticacionService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
